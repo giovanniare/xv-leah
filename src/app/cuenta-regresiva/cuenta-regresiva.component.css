@@ -1,0 +1,54 @@
+.countdown-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  .circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #830101;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 15px rgba(131, 1, 1, 0.2);
+    user-select: none;
+    flex-shrink: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .number {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .label {
+    margin-top: 0.2rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Animación bounce */
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-12px);
+    }
+    60% {
+      transform: translateY(-6px);
+    }
+  }
+  
+  .bounce {
+    animation: bounce 2s infinite;
+  }
