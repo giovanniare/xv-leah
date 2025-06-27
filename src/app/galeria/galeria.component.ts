@@ -9,14 +9,6 @@ import GLightbox from 'glightbox';
   styleUrl: './galeria.component.css'
 })
 export class GaleriaComponent {
-  ngAfterViewInit(): void {
-    const lightbox = GLightbox({
-      selector: '.glightbox',
-      touchNavigation: true,
-      loop: true,
-      zoomable: true,
-      autoplayVideos: true
-    });
-  }
+  
 
 }

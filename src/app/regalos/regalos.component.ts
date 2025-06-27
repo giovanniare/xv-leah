@@ -8,7 +8,7 @@ import { AfterViewInit, Component, ElementRef, Inject, PLATFORM_ID, ViewChild } 
   templateUrl: './regalos.component.html',
   styleUrl: './regalos.component.css'
 })
-export class RegalosComponent implements AfterViewInit {
+export class RegalosComponent  {
   @ViewChild('animatedTitle', { static: true }) animatedTitle!: ElementRef;
   @ViewChild('animatedInfo', { static: true }) animatedInfo!: ElementRef;
   @ViewChild('animatedDetails', { static: true }) animatedDetails!: ElementRef;
@@ -17,31 +17,36 @@ export class RegalosComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            this.animatedTitle.nativeElement.classList.add(
-              'animate__animated',
-              'animate__fadeIn',
-              'animate__delay-2s'
-            );
-            this.animatedInfo.nativeElement.classList.add(
-              'animate__animated',
-              'animate__fadeIn',
-              'animate__delay-3s'
-            );
-            this.animatedDetails.nativeElement.classList.add(
-              'animate__animated',
-              'animate__fadeIn',
-              'animate__delay-4s'
-            );
-          }
-        },
-        { threshold: 0.2 }
-      );
+      const animatedTitle = this.animatedTitle?.nativeElement;
+      const animatedInfo = this.animatedInfo?.nativeElement;
+      const animatedDetails = this.animatedDetails?.nativeElement;
   
-      observer.observe(this.animatedTitle.nativeElement);
+      if ('IntersectionObserver' in window && typeof IntersectionObserver !== 'undefined') {
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              animatedTitle.classList.add(
+                'animate__animated',
+                'animate__fadeIn',
+                'animate__delay-2s'
+              );
+              animatedInfo.classList.add(
+                'animate__animated',
+                'animate__fadeIn',
+                'animate__delay-3s'
+              );
+              animatedDetails.classList.add(
+                'animate__animated',
+                'animate__fadeIn',
+                'animate__delay-4s'
+              );
+            }
+          },
+          { threshold: 0.2 }
+        );
+  
+        observer.observe(animatedTitle);
+      }
     }
   }
 
