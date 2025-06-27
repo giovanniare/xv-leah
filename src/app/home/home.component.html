@@ -1,12 +1,14 @@
 
 
-<nav class="fixed top-0 w-full z-50 transition-colors duration-300 bg-transparent" id="navbar">
+<nav class="fixed top-0 w-full z-50 transition-colors duration-300"
+    [ngClass]="{ 'bg-white shadow-md': isScrolled, 'bg-transparent': !isScrolled }"
+    id="navbar">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="bride-dress.png" class="h-8" alt="Flowbite Logo" />
-          <span class="self-center text-2xl font-semibold whitespace-nowrap navbar-title-font">XV Leah</span>
+          <span class="self-center text-2xl font-semibold whitespace-nowrap navbar-title-font">Leah's XV</span>
       </a>
-      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-default" aria-expanded="false">
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-default" aria-expanded="false" (click)="toggleMenu()">
           <span class="sr-only">Open main menu</span>
           <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
@@ -40,21 +42,22 @@
     </div>
 </nav>
   
-
-<div class="bg-[url('../public/1.jpg')] bg-cover bg-center bg-no-repeat min-h-screen h-[100svh]">
-    <div class="relative min-h-screen flex flex-col items-center pt-[13vh] text-white text-border">
-      <h1 id="titulo" class="text-5xl font-bold titulo-principal animate__animated animate__fadeInDown animate__delay-1s">
-        XVs - Leah
-      </h1>
-      <h2 class="text-4xl font-bold text-center text-gold-sel mb-9 mt-2 josefin-sans-type animate__animated animate__fadeInUp animate__delay-2s">12      JUL     25</h2>
-      <app-cuenta-regresiva></app-cuenta-regresiva>
+<div>
+    <div class="bg-[url('../public/1.jpg')] bg-cover bg-center bg-no-repeat min-h-screen h-[100svh]">
+        <div class="relative min-h-screen flex flex-col items-center pt-[13vh] text-white text-border">
+          <h1 id="titulo" class="text-5xl font-bold titulo-principal animate__animated animate__fadeInDown animate__delay-1s">
+            Leah's XV
+          </h1>
+          <h2 class="text-4xl font-bold text-center text-gold-sel mb-9 mt-2 josefin-sans-type animate__animated animate__fadeInUp animate__delay-2s">12      JUL     25</h2>
+          <app-cuenta-regresiva></app-cuenta-regresiva>
+        </div>
     </div>
+    
+    <app-invitacion></app-invitacion>
+    <app-evento></app-evento>
+    <app-dress-code></app-dress-code>
+    <app-regalos></app-regalos>
+    <app-galeria></app-galeria>
 </div>
-
-<app-invitacion></app-invitacion>
-<app-evento></app-evento>
-<app-dress-code></app-dress-code>
-<app-regalos></app-regalos>
-<app-galeria></app-galeria>
     
 

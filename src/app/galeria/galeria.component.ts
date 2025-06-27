@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import GLightbox from 'glightbox';
 
 @Component({
   selector: 'app-galeria',
@@ -8,5 +9,14 @@ import { Component } from '@angular/core';
   styleUrl: './galeria.component.css'
 })
 export class GaleriaComponent {
+  ngAfterViewInit(): void {
+    const lightbox = GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      loop: true,
+      zoomable: true,
+      autoplayVideos: true
+    });
+  }
 
 }
